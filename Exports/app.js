@@ -1,5 +1,7 @@
 const csv = require('csvtojson')
 const fs = require('fs');
+const sqlite3 = require('sqlite3').verbose();
+
 
 var data = {};
 
@@ -21,6 +23,7 @@ fs.readdir(__dirname + '/csv/', async (err, files) => {
 		}
 	})
 });
+
 
 let jsonData = fs.readFileSync(__dirname + '/data.json', 'utf8');
 jsonData = JSON.parse(jsonData);
@@ -47,4 +50,37 @@ function getAllFromType(type) {
   return typeData;
 }
 
-console.log(getAllFromType("Review"));
+// console.log(getAllFromType("Review"));
+
+
+
+
+const db = new sqlite3.Database('./data.db', sqlite3.OPEN_READWRITE, (err) => {
+	if (err) return console.error(err.message);
+
+	console.log("connection online")
+});
+
+for (let table in jsonData) {
+	jsonData[table].forEach(row => {
+		let columns = ``;
+		let values = ``;
+		for (let key in row) {
+			columns += `"${key}", `;
+			values += `"${row[key]}", `;
+		};
+		columns = columns.slice(0, -2);
+		values = values.slice(0, -2);
+		console.log(`
+			INSERT INTO ${table} (${columns})
+			VALUES (${values})
+		`);
+		db.run(`
+			INSERT INTO ${table} (${columns})
+			VALUES (${values})
+		`);
+	});
+}
+db.close((err) =>{
+	if (err) return console.error(err.message);
+});

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <title>Create DocPac Entries</title>
+    <style>
+      input[placeholder="Type"], input[name="date"], input[name="eventDate"] {
+        width: 75px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST">
+      <h1>Create DocPac Entries</h1>
+
+      <h2>Date</h2>
+      <input type="text" name="date">
+
+      <h2>Changes</h2>
+      <input type="text" name="changes" placeholder="Text">
+
+      <h2>Events</h2>
+      <input type="text" name="eventsType" placeholder="Type">
+      <input type="text" name="events" placeholder="Event">
+      <input type="text" name="eventDate" placeholder="Event date">
+
+      <h2>Goals</h2>
+      <input type="text" name="goals" placeholder="Goal">
+
+      <h2>Included documentation</h2>
+      <input type="text" name="includedType" placeholder="Type">
+      <input type="text" name="included" placeholder="Name">
+
+      <h2>Required documentation</h2>
+      <input type="text" name="requiredType" placeholder="Type">
+      <input type="text" name="required" placeholder="Name">
+      <br><br>
+
+      <input type="submit">
+    </form>
+    <div class="boof">
+      <form action="http://localhost:5600/">
+        <input type="submit" value="Check DocPac Data" />
+      </form>
+    </div>
+  </body>
+</html>
