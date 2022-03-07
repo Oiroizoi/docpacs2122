@@ -55,5 +55,5 @@
 {"completeDocumentation":
 
 ["Dylan Martin", "A programmer has to make programming changes to an existing program. Therefore, the comments in the existing program must also be updated. These comments are referred to as ______ documentation", "['external', 'internal', 'primary', 'secondary']", "1", "2"],
-["Dylan Martin", "A programmer has decided ti create a pop-up window that will display a breif description of a control's purpose when the mouse hovers over it. This pop-up window is known as a", "['hyper clip', 'tool tip', 'task bar', 'help bar']", "1", "2"],
+["Dylan Martin", "A programmer has decided to create a pop-up window that will display a breif description of a control's purpose when the mouse hovers over it. This pop-up window is known as a", "['hyper clip', 'tool tip', 'task bar', 'help bar']", "1", "2"],
 }
